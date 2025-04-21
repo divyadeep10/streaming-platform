@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   roomId = providedRoomId || webinarId || Math.random().toString(36).substring(2, 7);
 
   // Generate student link with the exact room ID
-  const studentLink = `${window.location.origin}/student/view?room=${roomId}`;
+  const studentLink = `${window.location.origin}/student/view?room=${roomId}&transport=websocket`;
   studentLinkInput.value = studentLink;
 
   // Update the copy functionality to ensure exact ID is copied

@@ -1,5 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const socket = io();
+  // Change this line:
+  // const socket = io();
+  
+  // To this:
+  const socket = io({
+    transports: ['websocket'],
+    upgrade: false,
+    forceNew: true
+  });
   const remoteVideo = document.getElementById('remoteVideo');
   const joinBtn = document.getElementById('joinBtn');
   const roomIdInput = document.getElementById('roomIdInput');
