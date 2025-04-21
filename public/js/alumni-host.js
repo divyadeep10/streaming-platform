@@ -1,5 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const socket = io();
+  // Change this line:
+  // const socket = io();
+  
+  // To this:
+  const socket = io({
+    transports: ['polling'],
+    upgrade: false,
+    forceNew: true,
+    reconnectionAttempts: 5,
+    timeout: 20000
+  });
+  
   const localVideo = document.getElementById('localVideo');
   const startBtn = document.getElementById('startBtn');
   const stopBtn = document.getElementById('stopBtn');
@@ -23,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   roomId = providedRoomId || webinarId || Math.random().toString(36).substring(2, 7);
 
   // Generate student link with the exact room ID
-  const studentLink = `${window.location.origin}/student/view?room=${roomId}&transport=websocket`;
+  const studentLink = `${window.location.origin}/student/view?room=${roomId}`;
   studentLinkInput.value = studentLink;
 
   // Update the copy functionality to ensure exact ID is copied

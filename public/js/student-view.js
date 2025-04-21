@@ -4,10 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // To this:
   const socket = io({
-    transports: ['websocket'],
+    transports: ['polling'],
     upgrade: false,
-    forceNew: true
+    forceNew: true,
+    reconnectionAttempts: 5,
+    timeout: 20000
   });
+  
   const remoteVideo = document.getElementById('remoteVideo');
   const joinBtn = document.getElementById('joinBtn');
   const roomIdInput = document.getElementById('roomIdInput');
