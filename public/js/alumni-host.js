@@ -1,14 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Change this line:
-  // const socket = io();
-  
-  // To this:
+  // Optimize Socket.io connection for Vercel
   const socket = io({
-    transports: ['polling'],
-    upgrade: false,
-    forceNew: true,
+    transports: ['polling', 'websocket'],
     reconnectionAttempts: 5,
-    timeout: 20000
+    reconnectionDelay: 1000,
+    timeout: 20000,
+    path: '/socket.io/'
   });
   
   const localVideo = document.getElementById('localVideo');

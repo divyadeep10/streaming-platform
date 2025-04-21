@@ -5,7 +5,6 @@ const path = require('path');
 
 const app = express();
 const server = http.createServer(app);
-// const io = socketIo(server);
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
@@ -15,9 +14,13 @@ const io = socketIo(server, {
     origin: "*",
     methods: ["GET", "POST"]
   },
+  // Optimize for Vercel environment
   transports: ['polling', 'websocket'],
   pingTimeout: 60000,
-  pingInterval: 25000
+  pingInterval: 25000,
+  allowEIO3: true,
+  maxHttpBufferSize: 1e8, // 100MB
+  path: '/socket.io/'
 });
 
 // Set view engine
