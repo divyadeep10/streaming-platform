@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Stream</title>
+  <link rel="stylesheet" href="/css/view.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>View Live Stream</h1>
+    </div>
+
+    <div class="main-content">
+      <div class="video-container">
+        <video id="remoteVideo" autoplay playsinline></video>
+        <div class="stream-status">
+          <p id="statusMessage">Waiting to connect...</p>
+        </div>
+      </div>
+
+      <div class="side-panel">
+        <div class="connection-info">
+          <h3>Connection Info</h3>
+          <div class="join-form">
+            <input type="text" id="roomIdInput" placeholder="Enter Stream ID">
+            <button id="joinBtn" class="btn primary">Join Stream</button>
+          </div>
+          <p class="text-sm" style="color: #aaa; margin-top: 15px;">
+            Direct link format: http://localhost:3000/view?room=STREAM_ID
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <button id="returnBtn" class="btn secondary">Return to Webinars</button>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/view.js"></script>
+</body>
+</html>

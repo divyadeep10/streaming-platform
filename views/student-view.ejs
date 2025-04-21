@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student View Stream</title>
+  <link rel="stylesheet" href="/css/view.css">
+  <style>
+    .student-header {
+      background-color: #3498db;
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .connection-success {
+      background-color: rgba(46, 204, 113, 0.2);
+      border: 1px solid #2ecc71;
+      border-radius: 5px;
+      padding: 10px;
+      margin-top: 15px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="student-header">
+      <h1>Student View Portal</h1>
+      <p>Learn from alumni through live streaming sessions</p>
+    </div>
+
+    <div class="main-content">
+      <div class="video-container">
+        <video id="remoteVideo" autoplay playsinline></video>
+        <div class="stream-status">
+          <p id="statusMessage">Waiting to connect...</p>
+        </div>
+      </div>
+
+      <div class="side-panel">
+        <div class="connection-info">
+          <h3>Connection Info</h3>
+          <div id="autoJoinMessage" class="connection-success">
+            <p>Automatically connecting to stream...</p>
+          </div>
+          <div class="join-form">
+            <input type="text" id="roomIdInput" placeholder="Enter Stream ID">
+            <button id="joinBtn" class="btn primary">Join Stream</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <button id="returnBtn" class="btn secondary">Return to Webinars</button>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/student-view.js"></script>
+</body>
+</html>

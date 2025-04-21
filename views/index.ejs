@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Streaming Portal</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .role-selection {
+      margin-bottom: 30px;
+    }
+    
+    .role-title {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #555;
+    }
+    
+    .role-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .role-card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    
+    .role-card h2 {
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+    
+    .role-card p {
+      color: #7f8c8d;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Live Streaming Portal</h1>
+    
+    <div class="role-selection">
+      <p class="role-title">Please select your role:</p>
+      
+      <div class="role-container">
+        <div class="role-card">
+          <h2>Alumni</h2>
+          <p>Host a live stream to share your knowledge with students</p>
+          <a href="/alumni/host" class="btn host-btn">Enter Alumni Portal</a>
+        </div>
+        
+        <div class="role-card">
+          <h2>Student</h2>
+          <p>Join a live stream to learn from alumni experiences</p>
+          <a href="/student/view" class="btn view-btn">Enter Student Portal</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

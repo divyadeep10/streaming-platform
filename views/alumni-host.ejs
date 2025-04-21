@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alumni Host Stream</title>
+  <link rel="stylesheet" href="/css/host.css">
+  <style>
+    .alumni-header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .student-link-container {
+      background: rgba(46, 204, 113, 0.1);
+      border: 1px solid #2ecc71;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 20px;
+    }
+    
+    .student-link-container h3 {
+      color: #2ecc71;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="alumni-header">
+      <h1>Alumni Host Portal</h1>
+      <p>Share your knowledge with students through live streaming</p>
+    </div>
+
+    <div class="main-content">
+      <div class="video-container">
+        <video id="localVideo" autoplay muted playsinline></video>
+        <div class="stream-controls">
+          <button id="startBtn" class="btn primary">Start Stream</button>
+          <button id="stopBtn" class="btn danger" disabled>End Stream</button>
+        </div>
+      </div>
+
+      <div class="side-panel">
+        <div class="stats-container">
+          <h3>Stream Stats</h3>
+          <p>Viewers: <span id="viewerCount">0</span></p>
+          <p>Status: <span id="streamStatus">Ready</span></p>
+        </div>
+        
+        <div class="student-link-container" id="studentLinkContainer">
+          <h3>Student Join Link</h3>
+          <p>Share this link with students to join your stream:</p>
+          <div class="share-link">
+            <input type="text" id="studentLink" readonly>
+            <button id="copyStudentLinkBtn" class="btn">Copy</button>
+          </div>
+          <p id="linkStatus" class="link-status" style="margin-top: 8px; font-size: 14px; color: green;"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <button id="returnBtn" class="btn secondary">Return to Dashboard</button>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/alumni-host.js"></script>
+</body>
+</html>
